@@ -6,7 +6,7 @@ Component Build 방법
 - HTML, CSS , JS 코드를 조합하여 UI를 만든다. 
 - condition에 따라 컴포넌트의 state를 변경할 수있다. 
 
-### 🔹 React 작동방법 
+### React 작동방법 
 
 ```JS
 ReactDOM.render(<App />, document.getElementById("root"));
@@ -15,7 +15,7 @@ ReactDOM.render(<App />, document.getElementById("root"));
 index.js 가 실행되고 ReactDom이 App 컴포넌트를 root에 render 해준다.
 리액트의 컴포넌트는 JSX 를 반환하는 JS 함수이며 외부에서 사용하기 위해 export 와 import 과정을 거쳐야 한다. 작성된 JSX 코드는 개발자에게 친화적인 작성법으로 brower에서 동작하기 위해 변환 과정을 거치게 된다.  사용자가 정의한 컴포넌트는 꼭 대문자로 import 해와야한다. 기존 html 태그와 구별해야 하기 때문이다. 
 
-### 🔹 Component Tree
+### Component Tree
 React App 은  Component-Driven UI를 만드는 것으로 결국 Component Tree를 만드는 것과 같다. 
 <App/> 컴포넌트가 HTML에 렌더링 되는 단일한 page가 되며, 이를 시작점으로 하여  컴포넌트들이 중첩된 형식으로 뻗어나가게 된다. 
 
@@ -25,7 +25,7 @@ React App 은  Component-Driven UI를 만드는 것으로 결국 Component Tree�
 >컴포넌트 작성법 
 리액트 컴포넌트는 JSX를 리턴하는 자바스크립트로 클래스형, 함수형 두 가지로 작성이 가능하다. 
 
-### 🔹 Props
+### Props
 #### - Props로 데이터를 전달하기.
 > 데이터를 컴포넌트 안에 저장하는 것이 아니라 밖에서 주입시키는 방식
 
@@ -34,7 +34,7 @@ data should not be stored inside of them but instead receive outside
 
 Specific Component 들을 조합하여 전체적인 Component를 만드는 것(Composition)이 리액트의 사용 방법이며 이러한 Component 코드의 중복을 막고 재사용을 할 수있도록 만드는 것이 핵심
 
-### 🔹 children props 
+### children props 
 #### - 재사용 wrapper component 만들기 
 > Composition 에서 중요한 wrapper component 를 만들 수 있는 children props 알아보기
 
@@ -88,7 +88,7 @@ props로 받은 클래스네임을  변수로 받아서 통일된 스타일의 c
 더 복잡한 JSX 와 html 을 추출하여 컴포넌트를 atomic 하게 만들 수있다. 
 
 
-### 🔹 JSX
+### JSX
 JSX 로 작성한 코드가 React 객체라는 메서드로 변환되어 브라우저에 렌더링된다. 따라서 원래는 react 를 import 해줘야 사용가능했지만 최신 React setup에선 import 하지 않아도 가능하다. 
 - React가 JSX 를 createElement 객체를 통해 변환시키는 방법은 다음과 같다. 
 ```JS
@@ -96,7 +96,7 @@ return React.createElement("div",{},React.createElement(...))
 ```
 
 
-### 🔹 State 
+### State 
 > **Question.** 
 > 1. 왜 리액트는 useState를 사용하여 state를 변경할까 ?
 > 2. useState 는 동기로 작동할까 비동기로 작동할까? 

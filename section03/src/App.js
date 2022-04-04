@@ -1,9 +1,21 @@
 import React from "react";
+import { useState } from "react";
 
 import Expenses from "./components/Expenses/Expenses";
 import NewExpense from "./components/NewExpense/NewExpense";
 
 const App = () => {
+  const [data, setData] = useState({});
+
+  const onSaveExpenseData = (enteredDate) => {
+    const expenseDate = {
+      ...enteredDate,
+      id: Math.random().toString(),
+    };
+    setData(data);
+    console.log("data", expenseDate);
+  };
+
   const expenses = [
     {
       id: "e1",
@@ -26,16 +38,9 @@ const App = () => {
     },
   ];
 
-  // return React.createElement(
-  //   'div',
-  //   {},
-  //   React.createElement('h2', {}, "Let's get started!"),
-  //   React.createElement(Expenses, { items: expenses })
-  // );
-
   return (
     <div>
-      <NewExpense />
+      <NewExpense onSaveExpenseData={onSaveExpenseData} />
       <Expenses items={expenses} />
     </div>
   );

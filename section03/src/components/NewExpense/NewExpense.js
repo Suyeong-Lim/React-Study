@@ -1,10 +1,11 @@
 import React from "react";
 import ExpenseForm from "./ExpenseForm";
+import "./NewExpense.css";
 
-const NewExpense = () => {
+const NewExpense = ({ onSaveExpenseData }) => {
   return (
-    <div>
-      <ExpenseForm />
+    <div className="new-expense">
+      <ExpenseForm onSaveExpenseData={onSaveExpenseData} />
     </div>
   );
 };
