@@ -153,3 +153,69 @@ return (
 ```
 
 위와 같이 JSX 를 변수에 할당하여 사용할 수도 있다. 
+
+
+## 차트 추가하기 
+> Value 파생상태 다루기 
+- Chart 컴포넌트 : 받아온 dataPoints 로 렌더링 할 ChartBar와 ChartBar 에 넘겨줄 props들 세팅하기 (value값, max값, label, key값)
+- dataPoint 의 value 값과 파생 상태 maxValue 전달하기
+- 동적 스타일 추가하기 
+
+
+- 데이터 전달하기 
+chartDataPoints 배열을 미리 정의 해놓고 
+전달받은 모든 expenses 를 순회하면서 month 값을 가져 온 후 해당 매치되는 month 값의 value 에 지출 금액을 누적해서 지출 데이터를 구함
+
+```JS
+- ExpensesChart.js 
+
+for (const expense of expenses) {
+
+const expenseMonth = expense.date.getMonth();
+
+chartDataPoints[expenseMonth].value += expense.amount;
+
+}
+
+return <Chart dataPoints={chartDataPoints} />;
+```
+
+- dataPoint 의 value 값과 파생 상태 maxValue 전달하기
+
+```JS
+const Chart = ({ dataPoints }) => {
+
+const dataPointValues = dataPoints.map((it) => it.value);
+
+const totalMaximun = Math.max(...dataPointValues);
+
+console.log("spread", dataPointValues);
+```
+
+	💡 spread operator
+	함수의 호출 인자로 사용되었는데, 함수를 call 할때 spread operator 를 사용하면 
+	배열로 되어있는 내용을 바로 함수 인자로 넣어 줄 수있다.  
+	
+
+- 동적 스타일 추가하기 
+```JS
+let barFillHeight = "0%";
+
+if (max > 0) {
+
+barFillHeight = Math.round((value / maxValue) * 100) + "%";
+
+}
+```
+
+```JS
+<div
+
+className="chart-bar__fill"
+
+style={{ height: barFillHeight }}
+
+></div>
+```
+
+변수로 받아온 값을 사용해서 style을 inline 으로 동적으로 추가해주었음
