@@ -1,7 +1,7 @@
 import Modal from "components/Modal/Modal";
 import React from "react";
 import { useState } from "react";
-import "./User.css";
+
 import UserForm from "./UserForm";
 
 const User = ({ addUserData }) => {

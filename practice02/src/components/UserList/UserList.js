@@ -1,13 +1,14 @@
+import Card from "components/UI/Card";
 import React from "react";
 import UserDetail from "./UserDetail";
 
 const UserList = ({ users }) => {
   return (
-    <div>
+    <Card>
       {users.map((user) => (
         <UserDetail user={user} />
       ))}
-    </div>
+    </Card>
   );
 };
 

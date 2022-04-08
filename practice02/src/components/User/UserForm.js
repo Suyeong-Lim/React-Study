@@ -1,5 +1,8 @@
+import Card from "components/UI/Card";
+import Button from "components/UI/Button";
 import React, { useState } from "react";
-import "./User.css";
+import classes from "./User.css";
+
 const UserForm = ({ onSaveUserData, onValidCheck }) => {
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
@@ -22,9 +25,13 @@ const UserForm = ({ onSaveUserData, onValidCheck }) => {
       name,
       age,
     };
-
-    if (userData.name === "" || userData.age === "") {
+    if (name.trim().length === 0 || age.trim().length === 0) {
       onValidCheck(true);
+    }
+    if (+age < 1) {
+      console.log("npnp");
+      init();
+      return;
     } else {
       onSaveUserData(userData);
       init();
@@ -32,19 +39,29 @@ const UserForm = ({ onSaveUserData, onValidCheck }) => {
   };
 
   return (
-    <div className="Wrapper">
+    <Card className={classes.input}>
       <form className="user-form" onSubmit={submitHandler}>
-        <label>
+        <label htmlFor="username">
           <p>UserName</p>
-          <input type="text" value={name} onChange={nameChangeHandler} />
+          <input
+            id="username"
+            type="text"
+            value={name}
+            onChange={nameChangeHandler}
+          />
         </label>
-        <label>
+        <label htmlFor="age">
           <p>Age(Years)</p>
-          <input type="number" value={age} onChange={ageChangeHandler} />
+          <input
+            id="age"
+            type="number"
+            value={age}
+            onChange={ageChangeHandler}
+          />
         </label>
-        <button type="submit">Add User</button>
+        <Button type="submit">Add User</Button>
       </form>
-    </div>
+    </Card>
   );
 };
 
