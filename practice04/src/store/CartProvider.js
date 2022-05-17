@@ -38,12 +38,13 @@ const cartReducer = (state, action) => {
   }
   if (action.type === "DELETE") {
     //일단 눌린 아이템이 뭔지를 알아야하니까 배열 속 인덱스를 찾아준다.
+
     //액션으로 들어온 아이디와 같은 아이디를 갖고있는 아이템의 인덱스를 반환한다.
     //인덱스를 찾아냈으니 해당 아이템을 찾아낸다.
+
     const existingCartItemIndex = state.items.findIndex(
       (item) => item.id === action.id
     );
-
     const existingItem = state.items[existingCartItemIndex];
 
     //리무브가 호출되면 전체 값에서 눌린 아이템의 가격도 빼준다.
